@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import { connect } from "react-redux";
 import { v4 as uuidv4 } from "uuid";
 
 import WeeknessComponent from "../components/WeeknessComponent/weeknessComponent";
@@ -9,139 +9,24 @@ import CardteamComponent from "./TeamComponent/CardteamComponent";
 var Pokedex = require("pokedex-promise-v2");
 var P = new Pokedex();
 var team = [];
-export default class teamComponent extends Component {
-  constructor(props) {
-    super(props);
 
-    this.state = {
-      numteam: 0,
-      team: team,
-      team_types: [],
-      teamAgainst: [
-        {
-          tipo: "bug",
-          WeakAgainst: 0,
-          ResistsAgainst: 0,
-          ImmuneAgainst: 0
-        },
-        {
-          tipo: "poison",
-          WeakAgainst: 0,
-          ResistsAgainst: 0,
-          ImmuneAgainst: 0
-        },
-        {
-          tipo: "grass",
-          WeakAgainst: 0,
-          ResistsAgainst: 0,
-          ImmuneAgainst: 0
-        },
-        {
-          tipo: "dark",
-          WeakAgainst: 0,
-          ResistsAgainst: 0,
-          ImmuneAgainst: 0
-        },
-        {
-          tipo: "dragon",
-          WeakAgainst: 0,
-          ResistsAgainst: 0,
-          ImmuneAgainst: 0
-        },
-        {
-          tipo: "electric",
-          WeakAgainst: 0,
-          ResistsAgainst: 0,
-          ImmuneAgainst: 0
-        },
-        {
-          tipo: "fairy",
-          WeakAgainst: 0,
-          ResistsAgainst: 0,
-          ImmuneAgainst: 0
-        },
-        {
-          tipo: "fighting",
-          WeakAgainst: 0,
-          ResistsAgainst: 0,
-          ImmuneAgainst: 0
-        },
-        {
-          tipo: "fire",
-          WeakAgainst: 0,
-          ResistsAgainst: 0,
-          ImmuneAgainst: 0
-        },
-        {
-          tipo: "flying",
-          WeakAgainst: 0,
-          ResistsAgainst: 0,
-          ImmuneAgainst: 0
-        },
-        {
-          tipo: "ghost",
-          WeakAgainst: 0,
-          ResistsAgainst: 0,
-          ImmuneAgainst: 0
-        },
-        {
-          tipo: "ground",
-          WeakAgainst: 0,
-          ResistsAgainst: 0,
-          ImmuneAgainst: 0
-        },
-        {
-          tipo: "ice",
-          WeakAgainst: 0,
-          ResistsAgainst: 0,
-          ImmuneAgainst: 0
-        },
-        {
-          tipo: "normal",
-          WeakAgainst: 0,
-          ResistsAgainst: 0,
-          ImmuneAgainst: 0
-        },
-        {
-          tipo: "psychic",
-          WeakAgainst: 0,
-          ResistsAgainst: 0,
-          ImmuneAgainst: 0
-        },
-        {
-          tipo: "rock",
-          WeakAgainst: 0,
-          ResistsAgainst: 0,
-          ImmuneAgainst: 0
-        },
-        {
-          tipo: "steel",
-          WeakAgainst: 0,
-          ResistsAgainst: 0,
-          ImmuneAgainst: 0
-        },
-        {
-          tipo: "water",
-          WeakAgainst: 0,
-          ResistsAgainst: 0,
-          ImmuneAgainst: 0
-        }
-      ]
-    };
-  }
-
+class teamComponent extends Component {
   //cuando carga la pagina llena el listado de pokemons
   async componentDidMount() {
     let currentComponent = this;
 
     var interval = {
-      limit: 801,
+      limit: 15, //801,
       offset: 0
     };
     await P.getPokemonsList(interval).then(function(response) {
       var pokemon = response;
-      currentComponent.setState({
+      /*currentComponent.setState({
         allPokemon: pokemon.results
+      });*/
+      currentComponent.props.dispatch({
+        type: "all_pkm",
+        data: pokemon.results
       });
     });
   }
@@ -157,7 +42,10 @@ export default class teamComponent extends Component {
         newtypes.push(team[index].type2);
       }
     }
-    this.setState({ team_types: newtypes });
+    this.props.dispatch({
+      type: "MOD_types",
+      newtypes
+    });
     //calaculamos debilidades
     this.calcWeakAgainst(newtypes);
     //calaculamos fortalezas
@@ -168,7 +56,7 @@ export default class teamComponent extends Component {
 
   //calcula y llena el listado de debilidades (WeakAgainst) de los tipos actuales en el equipo
   async calcWeakAgainst(newtypes) {
-    var newWeakAgainst = this.state.teamAgainst;
+    var newWeakAgainst = this.props.teamAgainst;
     //lo limpio
     for (const [index, value] of newWeakAgainst.entries()) {
       newWeakAgainst[index].WeakAgainst = 0;
@@ -192,12 +80,16 @@ export default class teamComponent extends Component {
           console.log("There was an ERROR: ", error);
         });
     }
-    this.setState({ teamAgainst: newWeakAgainst });
+    //this.setState({ teamAgainst: newWeakAgainst });
+    this.props.dispatch({
+      type: "MOD_Weak",
+      newWeakAgainst
+    });
   }
 
   //calcula y llena el listado de Resistencias (ResistsAgainst) de los tipos actuales en el equipo
   async calcResistsAgainst(newtypes) {
-    var newResistsAgainst = this.state.teamAgainst;
+    var newResistsAgainst = this.props.teamAgainst;
     //lo limpio
     for (const [index, value] of newResistsAgainst.entries()) {
       newResistsAgainst[index].ResistsAgainst = 0;
@@ -221,12 +113,16 @@ export default class teamComponent extends Component {
           console.log("There was an ERROR: ", error);
         });
     }
-    this.setState({ teamAgainst: newResistsAgainst });
+
+    this.props.dispatch({
+      type: "MOD_resist",
+      newResistsAgainst
+    });
   }
 
   //calcula y llena el listado de inmunidades (ImmuneAgainst) de los tipos actuales en el equipo
   async calcImmuneAgainst(newtypes) {
-    var newImmuneAgainst = this.state.teamAgainst;
+    var newImmuneAgainst = this.props.teamAgainst;
     //lo limpio
     for (const [index, value] of newImmuneAgainst.entries()) {
       newImmuneAgainst[index].ImmuneAgainst = 0;
@@ -250,8 +146,10 @@ export default class teamComponent extends Component {
           console.log("There was an ERROR: ", error);
         });
     }
-    this.setState({
-      teamAgainst: newImmuneAgainst
+
+    this.props.dispatch({
+      type: "MOD_immune",
+      newImmuneAgainst
     });
   }
 
@@ -259,22 +157,23 @@ export default class teamComponent extends Component {
   erasePokemon(key) {
     let currentComponent = this;
     var newTeam = [];
-    newTeam = this.state.team.filter(function(team) {
+    newTeam = this.props.team.filter(function(team) {
       return team.key !== key;
     });
 
-    var newNumteam = this.state.numteam - 1;
-    currentComponent.setState({
-      team: newTeam,
+    var newNumteam = this.props.numteam - 1;
+
+    currentComponent.props.dispatch({
+      type: "REM_pkm",
+      newTeam: newTeam,
       numteam: newNumteam
     });
     //calculamos tipos
     this.calcType(newTeam);
   }
 
-  //agrega al pokemon clickeado al equipo
   async addPokemon(name) {
-    let numteam = this.state.numteam;
+    let numteam = this.props.numteam;
     var pkm = [];
     var tipo1 = "";
     var tipo2 = "";
@@ -292,7 +191,7 @@ export default class teamComponent extends Component {
         tipo2 = pkm.types.length > 1 ? pkm.types[0].type.name : "";
 
         if (numteam < 6) {
-          var newTeam = currentComponent.state.team;
+          var newTeam = currentComponent.props.team;
           numteam++;
           newTeam.push({
             key: uuidv4(),
@@ -301,10 +200,12 @@ export default class teamComponent extends Component {
             type2: tipo2,
             nombre: name
           });
-          currentComponent.setState({
-            team: newTeam,
-            numteam: numteam
+          currentComponent.props.dispatch({
+            type: "ADD_pkm",
+            newTeam,
+            numteam
           });
+
           //guardamos tipos
           currentComponent.calcType(newTeam);
         }
@@ -318,17 +219,18 @@ export default class teamComponent extends Component {
     return (
       <div>
         <CardteamComponent
-          team={this.state.team}
+          team={this.props.team}
           onClick={this.erasePokemon.bind(this)}
         ></CardteamComponent>
         <WeeknessComponent
-          teamAgainst={this.state.teamAgainst}
+          teamAgainst={this.props.teamAgainst}
         ></WeeknessComponent>
-        <Pokelist
-          allPokemon={this.state.allPokemon}
-          onClick={this.addPokemon.bind(this)}
-        ></Pokelist>
+        <Pokelist onClick={this.addPokemon.bind(this)}></Pokelist>
       </div>
     );
   }
 }
+const mapStateToProps = state => {
+  return state;
+};
+export default connect(mapStateToProps)(teamComponent);

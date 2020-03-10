@@ -1,16 +1,12 @@
 import React, { Component } from "react";
-
+import { connect } from "react-redux";
 import { Card, Row, Container, Col } from "react-bootstrap";
 
 import Minipoke from "../PokeSelectionComponent/MiniPokemon/minipoke";
 
-export default class pokelist extends Component {
-  constructor(props) {
-    super(props);
-  }
-
+class pokelist extends Component {
   render() {
-    if (!this.props.allPokemon) {
+    if (!this.props.allpokemon) {
       return <span>Loading...</span>;
     }
     return (
@@ -19,7 +15,7 @@ export default class pokelist extends Component {
         <Card.Body>
           <Container>
             <Row>
-              {this.props.allPokemon.map((e, i) => (
+              {this.props.allpokemon.map((e, i) => (
                 <Minipoke
                   onClick={() => this.props.onClick(e.name)}
                   key={i}
@@ -33,3 +29,7 @@ export default class pokelist extends Component {
     );
   }
 }
+const mapStateToProps = state => {
+  return state;
+};
+export default connect(mapStateToProps)(pokelist);

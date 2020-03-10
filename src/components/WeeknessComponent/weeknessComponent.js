@@ -1,19 +1,12 @@
 import React, { Component } from "react";
-
+import { connect } from "react-redux";
 import { Card, Accordion, Button, Row } from "react-bootstrap";
 
 import Typeinfo from "./typeinfo";
-export default class weeknessComponent extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      weeks: this.props.teamAgainst
-    };
-  }
-
+class weeknessComponent extends Component {
   render() {
-    if (!this.state.weeks) {
-      return <span>Loading... {this.state.weeks.length}</span>;
+    if (!this.props.teamAgainst) {
+      return <span>Loading... {this.props.teamAgainst.length}</span>;
     } else {
       return (
         <Card>
@@ -31,7 +24,7 @@ export default class weeknessComponent extends Component {
                 <Accordion.Collapse eventKey="0">
                   <Card.Body>
                     <Row>
-                      {this.state.weeks.map((e, i) => {
+                      {this.props.teamAgainst.map((e, i) => {
                         if (e.WeakAgainst > 0) {
                           return (
                             <Typeinfo
@@ -55,7 +48,7 @@ export default class weeknessComponent extends Component {
                 <Accordion.Collapse eventKey="1">
                   <Card.Body>
                     <Row>
-                      {this.state.weeks.map((e, i) => {
+                      {this.props.teamAgainst.map((e, i) => {
                         if (e.ResistsAgainst > 0) {
                           return (
                             <Typeinfo
@@ -79,7 +72,7 @@ export default class weeknessComponent extends Component {
                 <Accordion.Collapse eventKey="2">
                   <Card.Body>
                     <Row>
-                      {this.state.weeks.map((e, i) => {
+                      {this.props.teamAgainst.map((e, i) => {
                         if (e.ImmuneAgainst > 0) {
                           return (
                             <Typeinfo
@@ -101,3 +94,9 @@ export default class weeknessComponent extends Component {
     }
   }
 }
+const mapStateToProps = state => {
+  return {
+    posts: state
+  };
+};
+export default connect(mapStateToProps)(weeknessComponent);

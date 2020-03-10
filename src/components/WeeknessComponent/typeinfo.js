@@ -1,15 +1,11 @@
 import React, { Component } from "react";
-
-import { Row, Col } from "react-bootstrap";
+import { connect } from "react-redux";
+import { Col } from "react-bootstrap";
 
 import "./typeinfo.css";
-export default class typeinfo extends Component {
-  constructor(props) {
-    super(props);
-  }
-
+class typeinfo extends Component {
   render() {
-    if (this.props.tipo == "") {
+    if (this.props.tipo === "") {
       return <span>Loading... </span>;
     } else {
       return (
@@ -18,6 +14,7 @@ export default class typeinfo extends Component {
             <img
               src={"./img/tipos/" + this.props.type + ".png"}
               className="tipos"
+              alt="tipo"
             ></img>
             <span className="weak">x{this.props.valor}</span>
           </div>
@@ -26,3 +23,7 @@ export default class typeinfo extends Component {
     }
   }
 }
+const mapStateToProps = state => {
+  return state;
+};
+export default connect(mapStateToProps)(typeinfo);

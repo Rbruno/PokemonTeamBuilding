@@ -1,13 +1,9 @@
 import React, { Component } from "react";
-
+import { connect } from "react-redux";
 import { Card, Row, Container } from "react-bootstrap";
 
 import Pokemon from "../PokemonComponent/pokemon";
-export default class CardteamComponent extends Component {
-  constructor(props) {
-    super(props);
-  }
-
+class CardteamComponent extends Component {
   render() {
     return (
       <Card className="text-center">
@@ -31,3 +27,7 @@ export default class CardteamComponent extends Component {
     );
   }
 }
+const mapStateToProps = state => {
+  return state;
+};
+export default connect(mapStateToProps)(CardteamComponent);
