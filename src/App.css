@@ -1,0 +1,311 @@
+.normal1 {
+    background: #c6c6a7;
+    border-color: #6d6d4e
+}
+
+.grass1 {
+    background: #a7db8d;
+    border-color: #4e8234
+}
+
+.fire1 {
+    background: #f5ac78;
+    border-color: #9c531f
+}
+
+.water1 {
+    background: #9db7f5;
+    border-color: #445e9c;
+}
+
+.fighting1 {
+    background: #d67873;
+    border-color: #7d1f1a
+}
+
+.flying1 {
+    background: #c6b7f5;
+    border-color: #6d5e9c
+}
+
+.poison1 {
+    background: #c183c1;
+    border-color: #682a68
+}
+
+.ground1 {
+    background: #ebd69d;
+    border-color: #927d44
+}
+
+.rock1 {
+    background: #d1c17d;
+    border-color: #786824
+}
+
+.bug1 {
+    background: #c6d16e;
+    border-color: #6d7815
+}
+
+.ghost1 {
+    background: #a292bc;
+    border-color: #493963
+}
+
+.electric1 {
+    background: #fae078;
+    border-color: #a1871f
+}
+
+.psychic1 {
+    background: #fa92b2;
+    border-color: #a13959
+}
+
+.ice1 {
+    background: #bce6e6;
+    border-color: #638d8d
+}
+
+.dragon1 {
+    background: #a27dfa;
+    border-color: #4924a1
+}
+
+.dark1 {
+    background: #a29288;
+    border-color: #49392f
+}
+
+.steel1 {
+    background: #d1d1e0;
+    border-color: #787887
+}
+
+.fairy1 {
+    background: #f4bdc9;
+    border-color: #9b6470
+}
+
+.unknown,
+.unknown1 {
+    background: #68a090;
+    border-color: #44685e
+}
+
+.normal2 {
+    border-color: #6d6d4e
+}
+
+.grass2 {
+    border-color: #4e8234
+}
+
+.fire2 {
+    border-color: #9c531f
+}
+
+.water2 {
+    border-color: #445e9c
+}
+
+.fighting2 {
+    border-color: #7d1f1a
+}
+
+.flying2 {
+    border-color: #6d5e9c
+}
+
+.poison2 {
+    border-color: #682a68
+}
+
+.ground2 {
+    border-color: #927d44
+}
+
+.rock2 {
+    border-color: #786824
+}
+
+.bug2 {
+    border-color: #6d7815
+}
+
+.ghost2 {
+    border-color: #493963
+}
+
+.electric2 {
+    border-color: #a1871f
+}
+
+.psychic2 {
+    border-color: #a13959
+}
+
+.ice2 {
+    border-color: #638d8d
+}
+
+.dragon2 {
+    border-color: #4924a1
+}
+
+.dark2 {
+    border-color: #49392f
+}
+
+.steel2 {
+    border-color: #787887
+}
+
+.fairy2 {
+    border-color: #9b6470
+}
+
+.normal1:hover {
+    border-color: #a8a878
+}
+
+.grass1:hover {
+    border-color: #78c850
+}
+
+.fire1:hover {
+    border-color: #f08030
+}
+
+.water1:hover {
+    border-color: #6890f0
+}
+
+.fighting1:hover {
+    border-color: #c03028
+}
+
+.flying1:hover {
+    border-color: #a890f0
+}
+
+.poison1:hover {
+    border-color: #a040a0
+}
+
+.ground1:hover {
+    border-color: #e0c068
+}
+
+.rock1:hover {
+    border-color: #b8a038
+}
+
+.bug1:hover {
+    border-color: #a8b820
+}
+
+.ghost1:hover {
+    border-color: #705898
+}
+
+.electric1:hover {
+    border-color: #f8d030
+}
+
+.psychic1:hover {
+    border-color: #f85888
+}
+
+.ice1:hover {
+    border-color: #98d8d8
+}
+
+.dragon1:hover {
+    border-color: #7038f8
+}
+
+.dark1:hover {
+    border-color: #705848
+}
+
+.steel1:hover {
+    border-color: #b8b8d0
+}
+
+.fairy1:hover {
+    border-color: #ee99ac
+}
+
+.normal2:hover {
+    border-color: #a8a878
+}
+
+.grass2:hover {
+    border-color: #78c850
+}
+
+.fire2:hover {
+    border-color: #f08030
+}
+
+.water2:hover {
+    border-color: #6890f0
+}
+
+.fighting2:hover {
+    border-color: #c03028
+}
+
+.flying2:hover {
+    border-color: #a890f0
+}
+
+.poison2:hover {
+    border-color: #a040a0
+}
+
+.ground2:hover {
+    border-color: #e0c068
+}
+
+.rock2:hover {
+    border-color: #b8a038
+}
+
+.bug2:hover {
+    border-color: #a8b820
+}
+
+.ghost2:hover {
+    border-color: #705898
+}
+
+.electric2:hover {
+    border-color: #f8d030
+}
+
+.psychic2:hover {
+    border-color: #f85888
+}
+
+.ice2:hover {
+    border-color: #98d8d8
+}
+
+.dragon2:hover {
+    border-color: #7038f8
+}
+
+.dark2:hover {
+    border-color: #705848
+}
+
+.steel2:hover {
+    border-color: #b8b8d0
+}
+
+.fairy2:hover {
+    border-color: #ee99ac
+}

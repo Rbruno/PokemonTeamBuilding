@@ -1,0 +1,44 @@
+[
+  {
+    "key": 1,
+    "pokemon": "./img/pokemons/3.png",
+    "type1": "grass",
+    "type2": "poison",
+    "nombre": "Venasaur"
+  },
+  {
+    "key": 2,
+    "pokemon": "./img/pokemons/6.png",
+    "type1": "fire",
+    "type2": "flying",
+    "nombre": "Charizard"
+  },
+  {
+    "key": 3,
+    "pokemon": "./img/pokemons/9.png",
+    "type1": "water",
+    "type2": "",
+    "nombre": "Blastoise"
+  },
+  {
+    "key": 4,
+    "pokemon": "./img/pokemons/125.png",
+    "type1": "electric",
+    "type2": "",
+    "nombre": "Electabuzz"
+  },
+  {
+    "key": 5,
+    "pokemon": "./img/pokemons/523.png",
+    "type1": "electric",
+    "type2": "",
+    "nombre": "Zebstrika"
+  },
+  {
+    "key": 6,
+    "pokemon": "./img/pokemons/241.png",
+    "type1": "normal",
+    "type2": "",
+    "nombre": "Miltank"
+  }
+]
