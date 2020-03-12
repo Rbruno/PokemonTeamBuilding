@@ -31,7 +31,7 @@ export default class minipoke extends Component {
         <div>
           <ol className="olpok">
             <li onClick={this.props.onClick} className="lipok normal1">
-              <img src={"./img/pokemons/132.png"} alt="ditto" />
+              <img src={"./img/pokeball2.gif"} alt="pokeball" />
             </li>
           </ol>
         </div>

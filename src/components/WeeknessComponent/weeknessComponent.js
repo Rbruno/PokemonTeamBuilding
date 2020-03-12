@@ -1,5 +1,7 @@
 import React, { Component } from "react";
+
 import { connect } from "react-redux";
+
 import { Card, Accordion, Button, Row } from "react-bootstrap";
 
 import Typeinfo from "./typeinfo";
@@ -9,15 +11,20 @@ class weeknessComponent extends Component {
       return <span>Loading... {this.props.teamAgainst.length}</span>;
     } else {
       return (
-        <Card>
-          <Card.Header as="h5">
+        <Card className="card_shadow">
+          <Card.Header as="h5" className="pokeletra">
             Tablas de Debilidades, Fortalezas e inmunidades de tu equipo
           </Card.Header>
           <Card.Body>
             <Accordion defaultActiveKey="0">
               <Card>
                 <Card.Header>
-                  <Accordion.Toggle as={Button} variant="link" eventKey="0">
+                  <Accordion.Toggle
+                    as={Button}
+                    variant="h5"
+                    eventKey="0"
+                    className="pokeletra"
+                  >
                     Tu equipo es debil contra...
                   </Accordion.Toggle>
                 </Card.Header>
@@ -41,7 +48,12 @@ class weeknessComponent extends Component {
               </Card>
               <Card>
                 <Card.Header>
-                  <Accordion.Toggle as={Button} variant="link" eventKey="1">
+                  <Accordion.Toggle
+                    as={Button}
+                    variant="h5"
+                    eventKey="1"
+                    className="pokeletra"
+                  >
                     Tu equipo resiste a
                   </Accordion.Toggle>
                 </Card.Header>
@@ -65,7 +77,12 @@ class weeknessComponent extends Component {
               </Card>
               <Card>
                 <Card.Header>
-                  <Accordion.Toggle as={Button} variant="link" eventKey="2">
+                  <Accordion.Toggle
+                    as={Button}
+                    variant="h5"
+                    eventKey="2"
+                    className="pokeletra"
+                  >
                     Tu equipo es inmune a
                   </Accordion.Toggle>
                 </Card.Header>

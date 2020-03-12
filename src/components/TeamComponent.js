@@ -1,5 +1,7 @@
 import React, { Component } from "react";
+
 import { connect } from "react-redux";
+
 import { v4 as uuidv4 } from "uuid";
 
 import WeeknessComponent from "../components/WeeknessComponent/weeknessComponent";
@@ -16,7 +18,7 @@ class teamComponent extends Component {
     let currentComponent = this;
 
     var interval = {
-      limit: 15, //801,
+      limit: 801, //801,
       offset: 0
     };
     await P.getPokemonsList(interval).then(function(response) {

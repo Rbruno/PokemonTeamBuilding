@@ -1,5 +1,7 @@
 import React, { Component } from "react";
+
 import { connect } from "react-redux";
+
 import { Card, Row, Container, Col } from "react-bootstrap";
 
 import Minipoke from "../PokeSelectionComponent/MiniPokemon/minipoke";
@@ -10,8 +12,10 @@ class pokelist extends Component {
       return <span>Loading...</span>;
     }
     return (
-      <Card>
-        <Card.Header as="h5">Pokedex</Card.Header>
+      <Card className="card_shadow">
+        <Card.Header as="h5" className="pokeletra">
+          Lista de Pokemons Disponibles
+        </Card.Header>
         <Card.Body>
           <Container>
             <Row>

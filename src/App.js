@@ -11,7 +11,7 @@ function App() {
     <Container>
       <Row className="justify-content-md-center">
         <Col md="auto">
-          <h1>Pokemon Team Building</h1>
+          <h1 className="pokeletra">Pokemon Team Building</h1>
         </Col>
       </Row>
       <Row className="justify-content-md-center">

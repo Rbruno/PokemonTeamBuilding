@@ -1,12 +1,16 @@
 import React from "react";
+
 import { Provider } from "react-redux";
+
 import ReactDOM from "react-dom";
+
 import "bootstrap/dist/css/bootstrap.min.css";
+
+import { createStore } from "redux";
 
 import App from "./App";
 import "./index.css";
-//redux
-import { createStore } from "redux";
+
 import teamReducer from "./reducers/teamReducer";
 const store = createStore(teamReducer);
 
