@@ -8,6 +8,7 @@ import WeeknessComponent from "../components/WeeknessComponent/weeknessComponent
 
 import Pokelist from "./PokeSelectionComponent/pokelist";
 import CardteamComponent from "./TeamComponent/CardteamComponent";
+import actions from "../actions/index";
 var Pokedex = require("pokedex-promise-v2");
 var P = new Pokedex();
 var team = [];
@@ -18,7 +19,7 @@ class teamComponent extends Component {
     let currentComponent = this;
 
     var interval = {
-      limit: 801, //801,
+      limit: 15, //801,
       offset: 0
     };
     await P.getPokemonsList(interval).then(function(response) {
@@ -202,11 +203,12 @@ class teamComponent extends Component {
             type2: tipo2,
             nombre: name
           });
-          currentComponent.props.dispatch({
+          /*currentComponent.props.dispatch({
             type: "ADD_pkm",
             newTeam,
             numteam
-          });
+          });*/
+          currentComponent.props.dispatch(actions.addPkm(newTeam, numteam));
 
           //guardamos tipos
           currentComponent.calcType(newTeam);

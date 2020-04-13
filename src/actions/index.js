@@ -1,17 +1,24 @@
-export const addPkm = () => {
+const addPkm = (newTeam, numteam) => {
   return {
-    type: "ADD_pkm"
+    type: "ADD_pkm",
+    newTeam,
+    numteam
   };
 };
 
-export const remPkm = () => {
+const remPkm = () => {
   return {
     type: "REM_pkm"
   };
 };
 
-export const allpkm = () => {
+const allpkm = () => {
   return {
     type: "all_pkm"
   };
+};
+export default {
+  addPkm,
+  remPkm,
+  allpkm
 };
